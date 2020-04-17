@@ -1,0 +1,17 @@
+#erstes Wort finden Vorname)
+=LINKS(A3;FINDEN(" ";A3)-2)
+
+#Sie möchten die Anzahl der in der spalte c vorhandenen Wörter zählen? Mit der folgenden Funktion kommen Sie zum Ziel:
+=LÄNGE(c2)-LÄNGE(WECHSELN(c2;" ";))+1
+
+WENN((LÄNGE(A2)-LÄNGE(WECHSELN(A2;" ";))+1)>1);LINKS(A3;FINDEN(" ";A3)-1);TEIL(A3;FINDEN(" ";A3)+1;LÄNGE(A3)-FINDEN(" ";A3)))
+
+=WENN((LÄNGE(A2)-LÄNGE(WECHSELN(A2;" ";))+1)>1);ja;nein
+
+#Wenn die Anzahl der in der 2.Zelle vorhandenen Wörter (steht in g3) größer als 1, trage hier das erste Wort aus spalte b (hier:Vorname) ein, sonst lass die zelle leer
+=WENN((g2>1);LINKS(b2;FINDEN(" ";b2)-1);"")
+
+#Wenn die Anzahl der in der 2.Zelle vorhandenen Wörter (steht in F2) größer als 1, trage hier das alle Wörter ausser dem ersten (hier:Nachname) ein, sonst trag den gesamten Inhalt von zelle a2 ein
+=WENN((F2>1);TEIL(a2;FINDEN(" ";a2)+1;LÄNGE(a2)-FINDEN(" ";a2));a2)
+
+
